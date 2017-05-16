@@ -20,12 +20,20 @@ use LINE\LINEBot\EchoBot\Dependency;
 use LINE\LINEBot\EchoBot\Route;
 use LINE\LINEBot\EchoBot\Setting;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('<channel access token>');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '<channel secret>']);
 
-$setting = Setting::getSetting();
-$app = new Slim\App($setting);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
+$response = $bot->replyMessage('<replyToken>', $textMessageBuilder);
 
-(new Dependency())->register($app);
-(new Route())->register($app);
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
-$app->run();
+// require_once __DIR__ . '/../vendor/autoload.php';
+
+// $setting = Setting::getSetting();
+// $app = new Slim\App($setting);
+
+// (new Dependency())->register($app);
+// (new Route())->register($app);
+
+// $app->run();
