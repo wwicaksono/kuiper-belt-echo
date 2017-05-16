@@ -20,8 +20,8 @@ use LINE\LINEBot\EchoBot\Dependency;
 use LINE\LINEBot\EchoBot\Route;
 use LINE\LINEBot\EchoBot\Setting;
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('<channel access token>');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '<channel secret>']);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('WJMuQpbTs/jom1dzZN4iZMO3qMKJ2BeiZXXLh5fl21FfXoS20ZpB+Lw4wROmcKUWnMf1K1cYW2r5qlTXPbiPio5vlGY/OxRf3tySCdOhuZnNXk+QW9k63zCcA1w4jPmOctQzavGFj89/kL6LQw3GXgdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '050f108e5fc26a59327aa107e69dc5c2']);
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello');
 $response = $bot->replyMessage('<replyToken>', $textMessageBuilder);
