@@ -41,8 +41,7 @@ class Dependency
             $channelToken = $settings['bot']['channelToken'];
             $apiEndpointBase = $settings['apiEndpointBase'];
             $bot = new LINEBot(new CurlHTTPClient($channelToken), [
-                'channelSecret' => $channelSecret,
-                'endpointBase' => $apiEndpointBase, // <= Normally, you can omit this
+                'channelSecret' => $channelSecret
             ]);
             return $bot;
         };
